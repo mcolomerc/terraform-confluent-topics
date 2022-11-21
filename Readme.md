@@ -66,3 +66,6 @@ lifecycle {
     prevent_destroy = true
   }
 ```
+
+`Resource module.topic["topic_name"].confluent_kafka_topic.topic has lifecycle.prevent_destroy set`, but the plan calls for this resource to be destroyed. To avoid this error and continue with the plan, either disable
+│ `lifecycle.prevent_destroy` or reduce the scope of the plan using the `-target` flag.
