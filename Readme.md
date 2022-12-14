@@ -10,7 +10,7 @@ Provide a list of Topics and RBAC configuration.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.15.0 |
-| <a name="requirement_confluent"></a> [confluent](#requirement\_confluent) | ~>1.19.0 |
+| <a name="requirement_confluent"></a> [confluent](#requirement\_confluent) | ~>1.21.0 |
 
 ## Providers
 
