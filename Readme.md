@@ -16,7 +16,7 @@ Provide a list of Topics and RBAC configuration.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_confluent"></a> [confluent](#provider\_confluent) | 1.19.0 |
+| <a name="provider_confluent"></a> [confluent](#provider\_confluent) | 1.21.0 |
 
 ## Modules
 
