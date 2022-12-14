@@ -57,15 +57,17 @@ Provide a list of Topics and RBAC configuration.
 
 ## Topic Deletion
 
-This module uses `lifecycle { prevent_destroy = true }` to prevent accidental topic deletion.
+This module uses `lifecycle { prevent_destroy = false }`, to prevent accidental topic deletion use `prevent_destroy = true`
 
 This setting rejects plans that would destroy or recreate the topic, such as attempting to change uneditable attributes (for example, partitions_count).
   
 ```hcl
 lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 ```
+
+When `prevent_destroy = true`: 
 
 `Resource module.topic["topic_name"].confluent_kafka_topic.topic has lifecycle.prevent_destroy set`, but the plan calls for this resource to be destroyed. To avoid this error and continue with the plan, either disable
 │ `lifecycle.prevent_destroy` or reduce the scope of the plan using the `-target` flag.
