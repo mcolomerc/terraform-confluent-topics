@@ -21,6 +21,14 @@ variable "cluster" {
   description = "Confluent Cloud Cluster ID"
 }
 
+variable "kafka_api_key" {
+  type = string  
+}
+
+variable "kafka_api_secret" {
+  type = string
+}
+
 # Topic definition list 
 variable "topics" {
   type = list(object({
