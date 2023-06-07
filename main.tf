@@ -10,6 +10,9 @@ data "confluent_kafka_cluster" "cluster" {
 }
 
 module "topic" {
+  providers = {
+    confluent = confluent.conluent_cloud
+  }
   for_each            = { for topic in var.topics : topic.name => topic }
   source              = "./topic"
   environment         = var.environment
