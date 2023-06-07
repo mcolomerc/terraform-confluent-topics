@@ -1,16 +1,13 @@
-# Confluent cloud environment id  
-variable "environment" {
+variable "kafka_rest_endpoint" {
   type = string
 }
 
-# Confluent cloud cluster id  
-variable "cluster" {
-  type = string
+variable "kafka_api_key" {
+  type = string  
 }
 
-# RBAC enabled */
-variable "rbac_enabled" {
-  type = bool
+variable "kafka_api_secret" {
+  type = string
 }
 
 # Topic definition list 
@@ -19,16 +16,6 @@ variable "topic" {
     name     = string
     partitions = number
     config   =  map(string)
-    consumer = optional(string)
-    producer = optional(string)
-  })
-}
-
-# Confluent Cloud Service Account  
-variable "admin_sa" {
-  type = object({
-    id     = string
-    secret = string
   })
 }
 

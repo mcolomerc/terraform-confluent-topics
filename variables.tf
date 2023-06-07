@@ -21,31 +21,14 @@ variable "cluster" {
   description = "Confluent Cloud Cluster ID"
 }
 
-# RBAC enabled */
-variable "rbac_enabled" {
-  description = "Enable RBAC. If true producer/consumer will be used to configure Role Bindings for the Topic"
-  type = bool
-  default = false
-}
-
 # Topic definition list 
 variable "topics" {
   type = list(object({
     name = string
     partitions = number
-    config =  map(string)
-    consumer = optional(string)
-    producer = optional(string)
+    config =  optional(map(string))
   }))
-  description = "List of Topics. If RBAC enabled producer service account will be configured as DeveloperWrite and consumer will be configured as DeveloperRead."
+  description = "List of Topics"
 }
 
-# Confluent Cloud Service Account  
-variable "serv_account" {
-  description = "Service Account and Role for cluster management."
-  type = object({
-      name = string
-      role = string
-    }) 
-}
 
