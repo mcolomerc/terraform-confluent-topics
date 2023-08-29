@@ -28,22 +28,17 @@ Provide a list of Topics and RBAC configuration.
 
 | Name | Type |
 |------|------|
-| [confluent_api_key.saccount_kafka_api_key](https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/resources/api_key) | resource |
-| [confluent_role_binding.saccount_role](https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/resources/role_binding) | resource |
 | [confluent_environment.env](https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/data-sources/environment) | data source |
 | [confluent_kafka_cluster.cluster](https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/data-sources/kafka_cluster) | data source |
-| [confluent_service_account.saccount](https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/data-sources/service_account) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cluster"></a> [cluster](#input\_cluster) | Confluent Cloud Cluster ID | `string` | n/a | yes |
-| <a name="input_confluent_cloud_api_key"></a> [confluent\_cloud\_api\_key](#input\_confluent\_cloud\_api\_key) | Confluent Cloud API KEY. export TF\_VAR\_confluent\_cloud\_api\_key="API\_KEY" | `string` | n/a | yes |
-| <a name="input_confluent_cloud_api_secret"></a> [confluent\_cloud\_api\_secret](#input\_confluent\_cloud\_api\_secret) | Confluent Cloud API KEY. export TF\_VAR\_confluent\_cloud\_api\_secret="API\_SECRET" | `string` | n/a | yes |
+| <a name="input_cluster_credentials"></a> [cluster\_credentials](#input\_cluster\_credentials) | Confluent Cloud Cluster Credentials | <pre>object({ <br>    api_key = string<br>    api_secret = string<br>  })</pre> | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | Confluent Cloud Environment ID | `string` | n/a | yes |
 | <a name="input_rbac_enabled"></a> [rbac\_enabled](#input\_rbac\_enabled) | Enable RBAC. If true producer/consumer will be used to configure Role Bindings for the Topic | `bool` | `false` | no |
-| <a name="input_serv_account"></a> [serv\_account](#input\_serv\_account) | Service Account and Role for cluster management. | <pre>object({<br>      name = string<br>      role = string<br>    })</pre> | n/a | yes |
 | <a name="input_topics"></a> [topics](#input\_topics) | List of Topics. If RBAC enabled producer service account will be configured as DeveloperWrite and consumer will be configured as DeveloperRead. | <pre>list(object({<br>    name = string<br>    partitions = number<br>    config =  map(string)<br>    consumer = optional(string)<br>    producer = optional(string)<br>  }))</pre> | n/a | yes |
 
 ## Outputs
