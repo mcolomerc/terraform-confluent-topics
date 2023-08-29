@@ -26,11 +26,7 @@ resource "confluent_kafka_topic" "topic" {
   # This setting rejects plans that would destroy or recreate the topic, such as attempting to change uneditable attributes (for example, partitions_count).
   lifecycle {
     prevent_destroy = false
-  }
-
-  depends_on = [
-    data.confluent_kafka_cluster.kafka_cluster
-  ]
+  } 
 }
 
 # RBAC  
@@ -45,7 +41,7 @@ data "confluent_service_account" "consumer" {
 }
 
 ## Role binding for the Kafka cluster 
-resource "confluent_role_binding" "app-producer-developer-read-from-topic" {
+resource "confluent_role_binding" "app-developer-read" {
   count       = var.rbac_enabled == true ? 1 : 0
   principal   = "User:${data.confluent_service_account.consumer[count.index].id}"
   role_name   = "DeveloperRead"
@@ -57,7 +53,7 @@ resource "confluent_role_binding" "app-producer-developer-read-from-topic" {
   ]
 }
 
-resource "confluent_role_binding" "app-producer-developer-write" {
+resource "confluent_role_binding" "app-developer-write" {
   count       = var.rbac_enabled == true ? 1 : 0
   principal   = "User:${data.confluent_service_account.producer[count.index].id}"
   role_name   = "DeveloperWrite"

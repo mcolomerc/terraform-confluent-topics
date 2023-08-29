@@ -1,13 +1,4 @@
-# Confluent Cloud Credentials  
-variable "confluent_cloud_api_key" {
-  type = string
-  description = "Confluent Cloud API KEY. export TF_VAR_confluent_cloud_api_key=\"API_KEY\""
-}
-
-variable "confluent_cloud_api_secret" {
-  type = string
-   description = "Confluent Cloud API KEY. export TF_VAR_confluent_cloud_api_secret=\"API_SECRET\""
-}
+ 
 
 # Confluent cloud environment id  
 variable "environment" {
@@ -40,12 +31,13 @@ variable "topics" {
   description = "List of Topics. If RBAC enabled producer service account will be configured as DeveloperWrite and consumer will be configured as DeveloperRead."
 }
 
-# Confluent Cloud Service Account  
-variable "serv_account" {
-  description = "Service Account and Role for cluster management."
-  type = object({
-      name = string
-      role = string
-    }) 
+ 
+# Service Account Credentials
+variable "cluster_credentials" {
+  type = object({ 
+    api_key = string
+    api_secret = string
+  })
+  description = "Confluent Cloud Cluster Credentials"
 }
 
