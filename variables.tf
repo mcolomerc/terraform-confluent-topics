@@ -3,13 +3,13 @@
 # Confluent cloud environment id  
 variable "environment" {
   type = string
-   description = "Confluent Cloud Environment ID"
+   description = "Confluent Cloud Environment Display Name"
 }
 
 # Confluent cloud cluster id  
 variable "cluster" {
   type = string
-  description = "Confluent Cloud Cluster ID"
+  description = "Confluent Cloud Cluster Displa Name"
 }
 
 # RBAC enabled */
