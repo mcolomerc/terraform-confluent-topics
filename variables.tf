@@ -12,13 +12,13 @@ variable "confluent_cloud_api_secret" {
 # Confluent cloud environment id  
 variable "environment" {
   type = string
-   description = "Confluent Cloud Environment ID"
+   description = "Confluent Cloud Environment display name"
 }
 
 # Confluent cloud cluster id  
 variable "cluster" {
   type = string
-  description = "Confluent Cloud Cluster ID"
+  description = "Confluent Cloud Cluster display name"
 }
 
 variable "kafka_api_key" {
